@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires"  content="0">
+<title></title>
+<!-- 首屏Icon -->
+<link rel="shortcut icon" href="http://y.jf.189.cn/home/common_new/images/favicon.ico" type="image/x-icon">
+<link href="https://cdn.img.telefen.com/cms_new/UploadFiles/jfcms/20180921/20180921105813862.png" rel="apple-touch-icon-precomposed"> 
+<link href="common/css/main.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body> 
+	<div class="wrapper">
+		<div class="search">
+			<em class="search_box">change</em>
+			<p>
+				<span des = "m">money</span>
+				<span des = "f">free</span>
+				<span des = "a" class = "active">All</span>
+			</p>
+		</div>
+		<div class="userList">
+			<!-- 选项动态生成 -->
+			<ul></ul>
+		</div>
+	 </div>   
+	<script type="text/javascript">  
+  
+		var oUl = document.getElementsByTagName('ul')[0], 
+		oem = document.getElementsByTagName('em')[0];
+		oP = document.getElementsByTagName('p')[0];
+
+		// 模拟数据
+		var personArr = [
+			{name:'商品1',src:'https://avatar.csdn.net/F/D/B/3_cmchenmei.jpg',des:'m',num:'14'},
+			{name:'商品2',src:'https://avatar.csdn.net/F/D/B/3_cmchenmei.jpg',des:'f',num:'8'},
+			{name:'商品3',src:'https://avatar.csdn.net/F/D/B/3_cmchenmei.jpg',des:'m',num:'9'},
+			{name:'商品4',src:'https://avatar.csdn.net/F/D/B/3_cmchenmei.jpg',des:'m',num:'10'},
+			{name:'商品5',src:'https://avatar.csdn.net/F/D/B/3_cmchenmei.jpg',des:'f',num:'11'},
+			{name:'商品6',src:'https://avatar.csdn.net/F/D/B/3_cmchenmei.jpg',des:'f',num:'12'},
+			{name:'商品7',src:'https://avatar.csdn.net/F/D/B/3_cmchenmei.jpg',des:'f',num:'13'},  
+		]  
+
+		/* Dom树渲染 每次触发事件，Dom树都要重新渲染一次*/
+		function renderPage(list){
+			var str = '';
+			list.forEach((el,index)=> {
+				str += `<li>
+					<img src = "`+ el.src + `">
+					<p>` + el.name + `</p> 
+				</li>`
+			});
+			oUl.innerHTML = str
+		}
+		renderPage(personArr);
+
+		/* 存储当前的状态 */
+		var state = {
+			num:'',
+			des:'a',
+		}
+	
+		//根据num数值筛选内容 
+		oem.addEventListener('click',function(){ 
+			personArr.sort(function(a,b){
+		        if (a["num"] - b["num"]) {
+		            return a["num"] - b["num"];
+		        }  
+			});
+			renderPage(personArr);
+		},false)
+ 
+
+		//根据文字筛选
+		function filterText(text,arr){
+			return arr.sort(function(ele,index){
+				return ele.name.indexOf(text) > -1
+			})
+		}
+		//根据点击span筛选性别
+		oP.addEventListener('click',function(e){
+			if(e.target.nodeName == 'SPAN'){
+				state.des = e.target.getAttribute('des'); //将性别存储到状态机中
+				document.getElementsByClassName('active')[0].className = null;
+				e.target.className = 'active';
+				renderPage(lastFilter())
+			}
+		},false)
+
+		//根据性别筛选
+		function filterDes(des,arr){
+			if(des == 'a'){
+				return arr
+			}else{
+				return arr.filter(function(ele,index){
+					return des == ele.des
+				})
+			}  
+		}
+		//合并 内容的选项
+		function combineFilterFunc(obj,arr){
+			return function(){
+				var lastArr = arr;
+				for(prop in obj){
+					lastArr = obj[prop](state[prop],lastArr)
+				}
+				return lastArr
+			}
+		}
+		var lastFilter = combineFilterFunc({text:filterText,des:filterDes},personArr);
+	</script>
+
+
+ 
+  
+</body>
+</html>
+
+
