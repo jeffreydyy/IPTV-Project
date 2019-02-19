@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+@import url("reset.css");
+body {
+	font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+	font-size: 14px; color: #666; background:#fff; background-size: 100%; 
+}
+@media screen and (min-width:769px){  body{ width: 40%; margin:0 30%;} } 
+img { width: 100%; display: block;}
+.fl { float: left;} .fr{ float: right;} .cB{clear:both;} .dn {display: none;}
+
+
+.wrapper{
+    margin: 10px auto;
+}
+.search{
+    padding:10px;   
+}
+.search_box{
+    width:200px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    padding:10px; 
+    vertical-align:middle;  
+}
+.search p{
+    display:inline-block; 
+    vertical-align:middle;
+    margin-left:10px;
+}
+.search p span{
+    padding:8px;
+    border-radius:4px;
+    color:orange;
+    cursor: pointer;
+}
+.search .active{
+    color:#fff;
+    background:orange;
+}
+.userList ul li{
+    padding:10px;
+    border-bottom:1px solid #ccc;
+    list-style:none;
+    overflow:hidden;
+}
+.userList ul li img{
+    float:left;
+    width:50px;
+    height:50px;
+}
+.userList ul li p {
+    margin-left:70px;
+} 
+
+ 

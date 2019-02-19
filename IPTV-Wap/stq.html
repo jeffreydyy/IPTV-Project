@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>生态圈</title>
+<!-- 首屏Icon -->	
+<link rel="shortcut icon" href="http://y.jf.189.cn/home/common_new/images/favicon.ico" type="image/x-icon">
+<link href="https://cdn.img.telefen.com/cms_new/UploadFiles/jfcms/20180921/20180921105813862.png" rel="apple-touch-icon-precomposed">
+<link href="common/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="common/js/jquery.min.js"></script>
+<script type="text/javascript" src="common/js/orientation.js"></script>
+ 
+</head>
+<body style="background: #f4f4f4;">
+	<div class="banner">
+		<img src="common/images/stq.jpg">
+		<i><img src="common/images/quanyiBtn.png"></i>
+	</div>
+
+	<div class="iconList1"> 
+		<ul class="nav">
+			<li class="activeClass"><i><img src="common/images/icon_10.png"></i>
+				<span>咖啡plus</span></li>
+			<li><i><img src="common/images/icon_11.png"></i>
+				<span>乐享零食</span></li> 
+			<li><i><img src="common/images/icon_12.png"></i>
+				<span>酒店早餐</span></li> 
+			<li><i><img src="common/images/icon_13.png"></i>
+				<span>经典电影</span></li> 
+			<li><i><img src="common/images/icon_14.png"></i>
+				<span>精选好书</span></li> 
+			<li><i><img src="common/images/icon_15.png"></i>
+				<span>亲子时光</span></li> 	
+		</ul>   
+	</div>
+
+	<div class="stqList">
+		<div class="stqListBox"> 
+			<ul>
+				<li>
+					<a href="">
+						<i>
+							<img src="common/images/card_10.png">
+							<em>20元抵用券</em>
+							<span>免费领取</span>
+							<q>每个用户每周限领取一张</q>
+						</i>
+					</a>
+
+					<a href="">
+						<i>
+							<img src="common/images/card_10.png">
+							<em>20元抵用券</em>
+							<span>免费领取</span>
+							<q>每个用户每周限领取一张</q>
+						</i>
+					</a>
+				</li>
+
+				<li>
+					<a href="">
+							<i>
+								<img src="common/images/card_11.png">
+								<em>20元抵用券</em>
+								<span>免费领取</span>
+								<q>每个用户每周限领取一张</q>
+							</i>
+					</a>
+				</li> 
+
+				<li>
+					<a href="">
+							<i>
+								<img src="common/images/card_12.png">
+								<em>20元抵用券</em>
+								<span>免费领取</span>
+								<q>每个用户每周限领取一张</q>
+							</i>
+					</a>
+				</li> 
+
+				<li>
+					<a href="">
+							<i>
+								<img src="common/images/card_13.png">
+								<em>20元抵用券</em>
+								<span>免费领取</span>
+								<q>每个用户每周限领取一张</q>
+							</i>
+					</a>
+				</li> 
+
+				<li>
+					<a href="">
+							<i>
+								<img src="common/images/card_14.png">
+								<em>20元抵用券</em>
+								<span>免费领取</span>
+								<q>每个用户每周限领取一张</q>
+							</i>
+					</a>
+				</li> 
+
+				<li>
+					<a href="">
+							<i>
+								<img src="common/images/card_15.png">
+								<em>20元抵用券</em>
+								<span>免费领取</span>
+								<q>每个用户每周限领取一张</q>
+							</i>
+					</a>
+				</li> 			
+			</ul>
+		</div>
+	</div>
+	  
+
+<script type="text/javascript" src="common/js/bootstrap.min.js"></script> 
+<script type="text/javascript">
+	$('.stqList').find('li').not(':first').hide();
+	$('.iconList1 .nav li').click(function(){
+		$(this).addClass('activeClass').siblings().removeClass('activeClass');
+		var index = $(this).index();
+		$('.stqList').find('li').hide();
+		$('.stqList').find('li').eq(index).show();
+	})
+</script>
+</body>
+</html>
+
+
