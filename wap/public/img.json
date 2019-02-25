@@ -1,0 +1,21 @@
+{ 
+        "linkimg":[{
+            "banner":"./public/images/banner.jpg",
+            "icon":{
+                "img":[{
+                        "src":"./public/images/icon1.png"
+                    },{
+                        "src":"./public/images/icon1.png"
+                    },{
+                        "src":"./public/images/icon1.png"
+                    }]
+            },
+            "sp":{
+                "img":[{
+                        "src":"./public/images/sp1.jpg"
+                    },{
+                        "src":"./public/images/sp2.jpg"
+                    }]
+            }
+        }]
+} 
